@@ -28,6 +28,3 @@ When I’m not optimizing code or streamlining workflows, I’m exploring emergi
 - **Testing Tools:** Jest, JUnit, Mockito  
 - **Other Tools:** Figma, JIRA, Asana, VS Code  
 
----
-
-This `README.md` is designed to highlight your professional expertise, achievements, and technical skillset, making it ideal for showcasing on GitHub. Let me know if further refinements are needed!  
