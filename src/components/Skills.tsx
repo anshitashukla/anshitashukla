@@ -1,4 +1,4 @@
-import { Skill, SkillSectionProps } from "../interfaces/experience.interface";
+import { SkillSectionProps } from "../interfaces/experience.interface";
 
 const SkillsSection: React.FC<SkillSectionProps> = ({ skills }) => {
   return (

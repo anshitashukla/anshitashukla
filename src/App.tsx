@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Menu, Github, Mail, Linkedin, X } from "lucide-react";
 import ExperienceSection from "./components/ExperienceCard";
 import { experiences } from "./constants/Experience";
@@ -7,6 +7,8 @@ import { education } from "./constants/Education";
 import SkillsSection from "./components/Skills";
 import { skills } from "./constants/skills";
 import anshitaImage from "../src/assets/images/anshitashukla.jpeg";
+import ProjectsSection from "./components/Projects";
+import { projects } from "./constants/Projects";
 
 function App() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -29,6 +31,9 @@ function App() {
                 className="text-gray-700 hover:text-gray-900"
               >
                 Experience
+              </a>
+              <a href="#projects" className="text-gray-700 hover:text-gray-900">
+                Projects
               </a>
               <a
                 href="#education"
@@ -117,10 +122,33 @@ function App() {
       {/* Experience */}
       <ExperienceSection experiences={experiences} />
 
+      {/* Projects */}
+      <ProjectsSection projects={projects} />
+
       {/* Education */}
       <EducationSection education={education} />
 
       <footer className="bg-gray-900 text-white py-12 text-center">
+        <div className="mt-8 flex justify-center space-x-6">
+          <a
+            href="https://github.com/anshitashukla"
+            className="text-gray-500 hover:text-gray-900"
+          >
+            <Github className="h-6 w-6" />
+          </a>
+          <a
+            href="https://linkedin.com/in/anshita-shukla"
+            className="text-gray-500 hover:text-gray-900"
+          >
+            <Linkedin className="h-6 w-6" />
+          </a>
+          <a
+            href="mailto:anshitashukla0102@gmail.com"
+            className="text-gray-500 hover:text-gray-900"
+          >
+            <Mail className="h-6 w-6" />
+          </a>
+        </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <p>© 2025 Anshita Shukla. All rights reserved.</p>
         </div>
