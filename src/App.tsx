@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { Menu, Github, Mail, Linkedin, X } from "lucide-react";
+import ExperienceSection from "./components/ExperienceCard";
+import { experiences } from "./constants/Experience";
 
 function App() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -77,50 +79,7 @@ function App() {
         </div>
       </section>
 
-      <section id="experience" className="bg-blue-100 py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-gray-900 mb-8">Experience</h2>
-          <div className="space-y-8">
-            <div className="bg-white shadow rounded-lg p-6">
-              <h3 className="text-xl font-semibold text-gray-900">
-                Software Engineer 3
-              </h3>
-              <p className="text-gray-600 mt-1">
-                Scalex Technology Solutions LLP • Jul. 2022 – Dec. 2023
-              </p>
-              <ul className="mt-4 text-gray-600 list-disc list-inside space-y-2">
-                <li>
-                  Led a team of 6 to build microservices with Node.js,
-                  Express.js, and TypeScript.
-                </li>
-                <li>
-                  Designed a micro-frontend architecture, achieving 40% faster
-                  load times.
-                </li>
-                <li>
-                  Integrated Stripe and PayPal for payments, boosting revenue by
-                  60%.
-                </li>
-              </ul>
-            </div>
-            <div className="bg-white shadow rounded-lg p-6">
-              <h3 className="text-xl font-semibold text-gray-900">
-                Software Engineer 2
-              </h3>
-              <p className="text-gray-600 mt-1">
-                Scalex Technology Solutions LLP • Jul. 2021 – Jun. 2022
-              </p>
-              <ul className="mt-4 text-gray-600 list-disc list-inside space-y-2">
-                <li>
-                  Integrated OAuth for login and sign-up with Google and
-                  Facebook.
-                </li>
-                <li>Implemented video calling via Twilio SDK.</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
+      <ExperienceSection experiences={experiences} />
 
       <section id="education" className="bg-purple-100 py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
