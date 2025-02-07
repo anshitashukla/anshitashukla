@@ -30,7 +30,6 @@ function App() {
               >
                 Experience
               </a>
-
               <a
                 href="#education"
                 className="text-gray-700 hover:text-gray-900"
@@ -50,18 +49,38 @@ function App() {
               )}
             </button>
           </div>
+          {isMobileMenuOpen && (
+            <nav className="md:hidden bg-white shadow-lg absolute top-full left-0 w-full flex flex-col items-center space-y-4 py-4">
+              <a href="#about" className="text-gray-700 hover:text-gray-900">
+                About
+              </a>
+              <a href="#skills" className="text-gray-700 hover:text-gray-900">
+                Skills
+              </a>
+              <a
+                href="#experience"
+                className="text-gray-700 hover:text-gray-900"
+              >
+                Experience
+              </a>
+              <a
+                href="#education"
+                className="text-gray-700 hover:text-gray-900"
+              >
+                Education
+              </a>
+            </nav>
+          )}
         </div>
       </header>
-      <section className="bg-white">
-        <img
-          src={anshitaImage}
-          alt="Anshita Shukla"
-          className="rounded-full w-32 h-32 mx-auto "
-        />
-      </section>
 
       <section className="bg-white text-center py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <img
+            src={anshitaImage}
+            alt="Anshita Shukla"
+            className="rounded-full w-32 h-32 mx-auto mb-6"
+          />
           <h2 className="text-4xl font-bold text-gray-900 sm:text-5xl">
             Software Engineer
           </h2>
