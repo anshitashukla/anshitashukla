@@ -6,6 +6,7 @@ import EducationSection from "./components/Education";
 import { education } from "./constants/Education";
 import SkillsSection from "./components/Skills";
 import { skills } from "./constants/skills";
+import anshitaImage from "../src/assets/images/anshitashukla.jpeg";
 
 function App() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -20,15 +21,16 @@ function App() {
               <a href="#about" className="text-gray-700 hover:text-gray-900">
                 About
               </a>
+              <a href="#skills" className="text-gray-700 hover:text-gray-900">
+                Skills
+              </a>
               <a
                 href="#experience"
                 className="text-gray-700 hover:text-gray-900"
               >
                 Experience
               </a>
-              <a href="#skills" className="text-gray-700 hover:text-gray-900">
-                Skills
-              </a>
+
               <a
                 href="#education"
                 className="text-gray-700 hover:text-gray-900"
@@ -52,7 +54,7 @@ function App() {
       </header>
       <section className="bg-white">
         <img
-          src="src/assets/images/anshitashukla.jpeg"
+          src={anshitaImage}
           alt="Anshita Shukla"
           className="rounded-full w-32 h-32 mx-auto "
         />
