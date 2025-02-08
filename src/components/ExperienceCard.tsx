@@ -19,7 +19,15 @@ const ExperienceSection: React.FC<ExperienceSectionProps> = ({
               </p>
               <ul className="mt-4 text-gray-600 list-disc list-inside space-y-2">
                 {exp.responsibilities.map((item, idx) => (
-                  <li key={idx}>{item}</li>
+                  <li
+                    key={idx}
+                    dangerouslySetInnerHTML={{
+                      __html: item.replace(
+                        /\*\*(.*?)\*\*/g,
+                        "<strong>$1</strong>"
+                      ),
+                    }}
+                  />
                 ))}
               </ul>
             </div>
