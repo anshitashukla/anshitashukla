@@ -2,7 +2,7 @@
  🌟 **Software Engineer** | Scalable System Design | Full Stack Developer  
  
  📍 Washington D.C.  
- 📧 [anshitashukla0102@gmail.com](mailto:anshitashukla0102@gmail.com) | ☎️ 571-579-0839  
+ 📧 [anshitashukla0102@gmail.com](mailto:anshitashukla0102@gmail.com)  
  🔗 [LinkedIn](https://linkedin.com/in/anshita-shukla) | 🌐 [GitHub](https://github.com/anshitashukla)  
  
  ---
