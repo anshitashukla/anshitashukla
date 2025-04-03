@@ -10,12 +10,12 @@ const ContactContainer = styled.section`
 const Title = styled.h2`
   font-size: 36px;
   margin-bottom: 10px;
-  color: white;
+  color: var(--text-color);
 `;
 
 const Subtitle = styled.p`
   font-size: 16px;
-  color: #d3d3d3;
+  color: var(--text-color);
   margin-bottom: 40px;
 `;
 
@@ -25,7 +25,7 @@ const Form = styled.form`
   display: flex;
   flex-direction: column;
   gap: 20px;
-  background: rgba(255, 255, 255, 0.1);
+  background: var(--card-bg);
   padding: 30px;
   border-radius: 10px;
 `;
@@ -35,10 +35,10 @@ const Input = styled.input`
   border: none;
   border-radius: 5px;
   background: rgba(0, 0, 0, 0.5);
-  color: white;
+  color: var(--text-color);
   font-size: 16px;
   &::placeholder {
-    color: #d3d3d3;
+    color: var(--text-color);
   }
 `;
 
@@ -47,12 +47,12 @@ const Textarea = styled.textarea`
   border: none;
   border-radius: 5px;
   background: rgba(0, 0, 0, 0.5);
-  color: white;
+  color: var(--text-color);
   font-size: 16px;
   resize: none;
   height: 150px;
   &::placeholder {
-    color: #d3d3d3;
+    color: var(--text-color);
   }
 `;
 
@@ -78,7 +78,7 @@ const Footer = styled.footer`
 
 const FooterName = styled.p`
   font-size: 20px;
-  color: white;
+  color: var(--text-color);
   margin-bottom: 10px;
 `;
 
@@ -90,7 +90,7 @@ const FooterLinks = styled.div`
 `;
 
 const FooterLink = styled.a`
-  color: white;
+  color: var(--text-color);
   font-size: 24px;
   text-decoration: none;
   &:hover {
@@ -100,7 +100,7 @@ const FooterLink = styled.a`
 
 const FooterText = styled.p`
   font-size: 14px;
-  color: #d3d3d3;
+  color: var(--text-color);
 `;
 
 const Contact: React.FC = () => {

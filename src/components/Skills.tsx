@@ -10,12 +10,12 @@ const SkillsContainer = styled.section`
 const Title = styled.h2`
   font-size: 36px;
   margin-bottom: 10px;
-  color: white;
+  color: var(--text-color);
 `;
 
 const Subtitle = styled.p`
   font-size: 16px;
-  color: #d3d3d3;
+  color: var(--text-color);
   margin-bottom: 40px;
 `;
 
@@ -31,7 +31,7 @@ const SkillsGrid = styled.div`
 `;
 
 const SkillCard = styled.div`
-  background: rgba(255, 255, 255, 0.1);
+  background: var(--card-bg);
   padding: 20px;
   border-radius: 10px;
   text-align: left;
@@ -44,7 +44,7 @@ const SkillCard = styled.div`
 const SkillTitle = styled.h3`
   font-size: 20px;
   margin-bottom: 15px;
-  color: white;
+  color: var(--text-color);
 `;
 
 const SkillList = styled.ul`
@@ -55,7 +55,7 @@ const SkillList = styled.ul`
 const SkillItem = styled.li`
   font-size: 16px;
   margin: 8px 0;
-  color: #d3d3d3;
+  color: var(--text-color);
 `;
 
 const Skills: React.FC = () => {

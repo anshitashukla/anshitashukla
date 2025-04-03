@@ -13,7 +13,6 @@ import Header from "./components/header";
 const App: React.FC = () => {
   return (
     <div className="app">
-      <Snowflakes />
       <Header />
       <Intro />
       <Skills />
