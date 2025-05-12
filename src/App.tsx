@@ -10,10 +10,14 @@ import anshitaImage from "../src/assets/images/anshitashukla.jpeg";
 import ProjectsSection from "./components/Projects";
 import { projects } from "./constants/Projects";
 import Preloader from "./components/preloader";
+import "./index.css";
+import { ReactTyped } from "react-typed";
+import HeroBackground from "./components/HeroBackground";
 
 const App = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [visible, setVisible] = useState<boolean>(true);
+  const [currentText, setCurrentText] = useState("");
 
   // Hide preloader after a fixed 3-second delay
   useEffect(() => {
@@ -29,42 +33,25 @@ const App = () => {
       {visible ? (
         <Preloader />
       ) : (
-        <div className="min-h-screen bg-gradient-to-r from-blue-200 to-purple-300">
-          <header className="bg-white shadow-sm relative">
+        <div className="min-h-screen from-blue-200 to-purple-300">
+          <header className="bg-primary text-white shadow-sm relative">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="flex justify-between items-center py-4">
-                <h1 className="text-xl font-bold text-gray-900">
-                  Anshita Shukla
-                </h1>
+                <h1 className="text-xl font-bold">Anshita Shukla</h1>
                 <nav className="hidden md:flex space-x-8">
-                  <a
-                    href="#about"
-                    className="text-gray-700 hover:text-gray-900"
-                  >
+                  <a href="#about" className=" hover:">
                     About
                   </a>
-                  <a
-                    href="#skills"
-                    className="text-gray-700 hover:text-gray-900"
-                  >
+                  <a href="#skills" className=" hover:">
                     Skills
                   </a>
-                  <a
-                    href="#experience"
-                    className="text-gray-700 hover:text-gray-900"
-                  >
+                  <a href="#experience" className=" hover:">
                     Experience
                   </a>
-                  <a
-                    href="#projects"
-                    className="text-gray-700 hover:text-gray-900"
-                  >
+                  <a href="#projects" className=" hover:">
                     Projects
                   </a>
-                  <a
-                    href="#education"
-                    className="text-gray-700 hover:text-gray-900"
-                  >
+                  <a href="#education" className=" hover:">
                     Education
                   </a>
                 </nav>
@@ -74,36 +61,24 @@ const App = () => {
                   aria-label="Toggle menu"
                 >
                   {isMobileMenuOpen ? (
-                    <X className="h-6 w-6 text-gray-700" />
+                    <X className="h-6 w-6 " />
                   ) : (
-                    <Menu className="h-6 w-6 text-gray-700" />
+                    <Menu className="h-6 w-6 " />
                   )}
                 </button>
               </div>
               {isMobileMenuOpen && (
-                <nav className="md:hidden bg-white shadow-lg absolute top-full left-0 w-full flex flex-col items-center space-y-4 py-4">
-                  <a
-                    href="#about"
-                    className="text-gray-700 hover:text-gray-900"
-                  >
+                <nav className="md:hidden bg-white shadow-lg absolute top-full left-0 w-full flex flex-col items-center space-y-4 py-4 z-20">
+                  <a href="#about" className=" hover:">
                     About
                   </a>
-                  <a
-                    href="#skills"
-                    className="text-gray-700 hover:text-gray-900"
-                  >
+                  <a href="#skills" className=" hover:">
                     Skills
                   </a>
-                  <a
-                    href="#experience"
-                    className="text-gray-700 hover:text-gray-900"
-                  >
+                  <a href="#experience" className=" hover:">
                     Experience
                   </a>
-                  <a
-                    href="#education"
-                    className="text-gray-700 hover:text-gray-900"
-                  >
+                  <a href="#education" className=" hover:">
                     Education
                   </a>
                 </nav>
@@ -111,36 +86,50 @@ const App = () => {
             </div>
           </header>
 
-          <section className="bg-white text-center py-24">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <section
+            id="red"
+            className="relative bg-primary text-center py-24 overflow-hidden"
+          >
+            {/* <HeroBackground /> */}
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
               <img
                 src={anshitaImage}
                 alt="Anshita Shukla"
                 className="rounded-full w-32 h-32 mx-auto mb-6"
               />
-              <h2 className="text-4xl font-bold text-gray-900 sm:text-5xl">
-                Software Engineer
-              </h2>
-              <p className="mt-6 text-xl text-gray-600 max-w-2xl mx-auto">
+              <p className="sm:text-2xl text-white">I am </p>
+              <ReactTyped
+                strings={[
+                  "Fullstack Developer",
+                  "Software Engineer",
+                  "Web Developer",
+                  "Mobile App Developer",
+                ]}
+                className="text-3xl text-white font-bold  sm:text-5xl"
+                typeSpeed={60}
+                backSpeed={30}
+                loop={true}
+              />
+              <p className="mt-6 text-xl max-w-2xl mx-auto text-white">
                 Passionate about building scalable applications and solving
                 complex problems with clean, efficient code.
               </p>
               <div className="mt-8 flex justify-center space-x-6">
                 <a
                   href="https://github.com/anshitashukla"
-                  className="text-gray-500 hover:text-gray-900"
+                  className="text-white hover:"
                 >
                   <Github className="h-6 w-6" />
                 </a>
                 <a
                   href="https://linkedin.com/in/anshita-shukla"
-                  className="text-gray-500 hover:text-gray-900"
+                  className="text-white hover:"
                 >
                   <Linkedin className="h-6 w-6" />
                 </a>
                 <a
                   href="mailto:anshitashukla0102@gmail.com"
-                  className="text-gray-500 hover:text-gray-900"
+                  className="text-white hover:"
                 >
                   <Mail className="h-6 w-6" />
                 </a>
@@ -160,23 +149,23 @@ const App = () => {
           {/* Education */}
           <EducationSection education={education} />
 
-          <footer className="bg-gray-900 text-white py-12 text-center">
+          <footer className="bg-gray-900 text-white py-2 text-center">
             <div className="mt-8 flex justify-center space-x-6">
               <a
                 href="https://github.com/anshitashukla"
-                className="text-gray-500 hover:text-gray-900"
+                className="text-gray-500 hover:"
               >
                 <Github className="h-6 w-6" />
               </a>
               <a
                 href="https://linkedin.com/in/anshita-shukla"
-                className="text-gray-500 hover:text-gray-900"
+                className="text-gray-500 hover:"
               >
                 <Linkedin className="h-6 w-6" />
               </a>
               <a
                 href="mailto:anshitashukla0102@gmail.com"
-                className="text-gray-500 hover:text-gray-900"
+                className="text-gray-500 hover:"
               >
                 <Mail className="h-6 w-6" />
               </a>

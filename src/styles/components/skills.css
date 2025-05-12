@@ -1,0 +1,98 @@
+.skills-container {
+  background-color: #f0f7f0;
+  color: #3c0c99;
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+h1 {
+  color: #742dff;
+  font-size: 2.5rem;
+}
+
+.skill-card {
+  background: white;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.skill-icon {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+h3 {
+  color: #3c0c99;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+p {
+  color: #666;
+  margin-bottom: 15px;
+}
+
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.skill-item {
+  flex: 1 1 200px;
+  min-width: 200px;
+  margin-bottom: 10px;
+}
+
+.skill-name {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.skill-progress {
+  height: 10px;
+  background: #e0e0e0;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  background: #3c0c99;
+  border-radius: 5px;
+}
+
+.skill-years,
+.skill-percentage {
+  font-size: 0.8rem;
+  color: #666;
+  margin-left: 10px;
+}
+
+@media (max-width: 768px) {
+  .skill-card {
+    padding: 15px;
+  }
+  h3 {
+    font-size: 1.2rem;
+  }
+  .skills-list {
+    flex-direction: column;
+  }
+  .skill-item {
+    min-width: 100%;
+  }
+}

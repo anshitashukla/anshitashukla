@@ -5,9 +5,11 @@ const ExperienceSection: React.FC<ExperienceSectionProps> = ({
   experiences,
 }) => {
   return (
-    <section id="experience" className="bg-blue-100 py-16">
+    <section id="experience" className="bg-primary py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl font-bold text-gray-900 mb-8">Experience</h2>
+        <h2 className="text-3xl font-bold text-white mb-8 text-center">
+          Experience
+        </h2>
         <div className="space-y-8">
           {experiences.map((exp, index) => (
             <div key={index} className="bg-white shadow rounded-lg p-6">

@@ -22,6 +22,7 @@ export interface EducationSectionProps {
 export interface Skill {
   name: string;
   iconClass: string;
+  percentage: number;
 }
 
 export interface SkillSectionProps {

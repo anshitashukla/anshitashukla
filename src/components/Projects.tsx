@@ -4,9 +4,11 @@ const ProjectsSection: React.FC<{ projects: typeof projects }> = ({
   projects,
 }) => {
   return (
-    <section id="projects" className="bg-green-100 py-16">
+    <section id="projects" className="bg-primary py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl font-bold text-gray-900 mb-8">Projects</h2>
+        <h2 className="text-3xl font-bold text-white mb-8 text-center">
+          Projects
+        </h2>
         <div className="space-y-6">
           {projects.map((project, index) => (
             <div key={index} className="bg-white shadow rounded-lg p-6">
