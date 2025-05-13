@@ -119,7 +119,7 @@ const sectionVariants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.8, ease: "easeInOut" },
+    transition: { duration: 1, ease: "easeInOut" },
   },
 };
 
@@ -130,7 +130,6 @@ const skillItemVariants = {
     x: 0,
     transition: {
       duration: 0.5,
-      delay: i * 0.1,
       ease: "easeInOut",
     },
   }),
@@ -150,7 +149,7 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({
   return (
     <motion.section
       variants={sectionVariants}
-      initial="hidden"
+      initial="visible"
       whileInView="visible"
       viewport={{ once: true }}
       className=""
