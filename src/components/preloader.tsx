@@ -60,7 +60,7 @@ function Preloader() {
 
             }
             .text2{
-            color: #2978b5;
+            color: #3c0c99;
             font-weight: 500;
             }
 
