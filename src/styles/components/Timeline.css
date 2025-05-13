@@ -1,0 +1,198 @@
+/* src/styles/components/Timeline.css */
+.timeline {
+  position: relative;
+  padding: 40px 20px;
+  background-color: #0d1117; /* Dark background */
+  min-height: 100vh; /* Ensure full height */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  background-color: #30363d; /* Darker line */
+  transform: translateX(-50%);
+}
+
+.timeline-item {
+  margin-bottom: 40px;
+  width: 100%;
+  max-width: 700px; /* Increased max-width for wider screens */
+  display: flex;
+  position: relative;
+}
+
+.timeline-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  background-color: #58a6ff; /* Example accent color */
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8em;
+  color: #0d1117;
+}
+
+.timeline-date {
+  position: absolute;
+  top: 0;
+  font-size: 0.8em;
+  color: #c9d1d9; /* Light text */
+  white-space: nowrap;
+}
+
+.timeline-card {
+  background-color: #161b22; /* Dark card background */
+  color: #c9d1d9; /* Light text */
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  width: 45%; /* Adjust card width for two-column layout */
+}
+
+.logo {
+  max-width: 40px;
+  max-height: 40px;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  font-size: 0.9em;
+  color: #8b949e; /* Muted text */
+  margin-bottom: 5px;
+}
+
+.description {
+  font-size: 0.95em;
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+
+.skills {
+  font-size: 0.8em;
+  color: #8b949e; /* Muted text */
+}
+
+.skills strong {
+  color: #c9d1d9; /* Highlight text */
+  font-weight: bold;
+}
+
+/* Two-column layout for larger screens */
+@media (min-width: 769px) {
+  .timeline-item:nth-child(odd) {
+    justify-content: flex-end;
+    padding-right: calc(50% + 20px);
+  }
+
+  .timeline-item:nth-child(odd) .timeline-icon {
+    right: calc(50% - 30px);
+    left: auto;
+  }
+
+  .timeline-item:nth-child(odd) .timeline-date {
+    right: calc(50% + 10px);
+    text-align: right;
+  }
+
+  .timeline-item:nth-child(odd) .timeline-card {
+    text-align: right;
+  }
+
+  .timeline-item:nth-child(even) {
+    justify-content: flex-start;
+    padding-left: calc(50% + 20px);
+  }
+
+  .timeline-item:nth-child(even) .timeline-icon {
+    left: calc(50% - 30px);
+    right: auto;
+  }
+
+  .timeline-item:nth-child(even) .timeline-date {
+    left: calc(50% + 10px);
+    text-align: left;
+  }
+
+  .timeline-item:nth-child(even) .timeline-card {
+    text-align: left;
+  }
+}
+
+/* Single-column layout for smaller screens */
+@media (max-width: 768px) {
+  .timeline::before {
+    left: 20px;
+  }
+
+  .timeline-item {
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 40px !important;
+    padding-right: 20px !important; /* Add some right padding */
+  }
+
+  .timeline-item:nth-child(odd),
+  .timeline-item:nth-child(even) {
+    transform: none;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .timeline-icon {
+    left: 20px;
+    top: 15px; /* Adjust icon position in single column */
+  }
+
+  .timeline-date {
+    position: static; /* Flow with the content */
+    margin-bottom: 5px;
+    text-align: left;
+  }
+
+  .timeline-card {
+    width: 100%;
+    margin-left: 0 !important;
+    text-align: left !important;
+  }
+}
+
+/* Very small screens */
+@media (max-width: 480px) {
+  .timeline {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .timeline::before {
+    left: 10px;
+  }
+
+  .timeline-item {
+    padding-left: 30px !important;
+  }
+
+  .timeline-icon {
+    left: 10px;
+  }
+
+  .timeline-date {
+    margin-left: 20px;
+  }
+
+  .timeline-card {
+    margin-left: 10px !important;
+  }
+}

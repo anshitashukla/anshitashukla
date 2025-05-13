@@ -1,42 +1,52 @@
 import React from "react";
-import { ExperienceSectionProps } from "../interfaces/experience.interface";
+import {
+  VerticalTimeline,
+  VerticalTimelineElement,
+} from "react-vertical-timeline-component";
+import "react-vertical-timeline-component/style.min.css";
+import { experiences } from "../constants/Experience";
 
-const ExperienceSection: React.FC<ExperienceSectionProps> = ({
-  experiences,
-}) => {
+const ExperienceSection: React.FC = () => {
   return (
     <section id="experience" className="bg-primary py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-3xl font-bold text-white mb-8 text-center">
           Experience
         </h2>
-        <div className="space-y-8">
+        <VerticalTimeline>
           {experiences.map((exp, index) => (
-            <div key={index} className="bg-white shadow rounded-lg p-6">
-              <h3 className="text-xl font-semibold text-gray-900">
-                {exp.title}
-              </h3>
-              <p className="text-gray-600 mt-1">
-                {exp.company} • {exp.duration}
-              </p>
+            <VerticalTimelineElement
+              key={index}
+              className="vertical-timeline-element--work"
+              contentArrowStyle={{
+                borderRight: "7px solid  rgb(255, 255, 255)",
+              }}
+              date={exp.duration}
+              dateClassName="text-white"
+              iconStyle={{ background: "rgb(33, 150, 243)", color: "#fff" }}
+              icon={
+                <img
+                  src={exp.image}
+                  alt="Experience Icon"
+                  style={{ width: "100%", height: "100%", borderRadius: "50%" }}
+                />
+              }
+            >
+              <h3 className="vertical-timeline-element-title">{exp.title}</h3>
+              <h4 className="vertical-timeline-element-subtitle">
+                {exp.company}
+              </h4>
               <ul className="mt-4 text-gray-600 list-disc list-inside space-y-2">
                 {exp.responsibilities.map((item, idx) => (
-                  <li
-                    key={idx}
-                    dangerouslySetInnerHTML={{
-                      __html: item.replace(
-                        /\*\*(.*?)\*\*/g,
-                        "<strong>$1</strong>"
-                      ),
-                    }}
-                  />
+                  <li key={idx} dangerouslySetInnerHTML={{ __html: item }} />
                 ))}
               </ul>
-            </div>
+            </VerticalTimelineElement>
           ))}
-        </div>
+        </VerticalTimeline>
       </div>
     </section>
   );
 };
+
 export default ExperienceSection;

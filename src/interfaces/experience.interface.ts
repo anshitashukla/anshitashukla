@@ -3,6 +3,8 @@ export interface Experience {
   company: string;
   duration: string;
   responsibilities: string[];
+  image: string;
+  location: string;
 }
 
 export interface ExperienceSectionProps {
