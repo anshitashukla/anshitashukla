@@ -65,7 +65,7 @@ const App = () => {
                 </button>
               </div>
               {isMobileMenuOpen && (
-                <nav className="md:hidden bg-white shadow-lg absolute top-full left-0 w-full flex flex-col items-center space-y-4 py-4 z-20">
+                <nav className="md:hidden bg-white/90 text-gray-900 shadow-lg absolute top-full left-0 w-full flex flex-col space-y-4 py-4 z-20">
                   <a href="#about" className=" hover:">
                     About
                   </a>

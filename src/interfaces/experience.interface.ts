@@ -5,6 +5,7 @@ export interface Experience {
   responsibilities: string[];
   image: string;
   location: string;
+  skills: string[];
 }
 
 export interface ExperienceSectionProps {
