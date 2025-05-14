@@ -1,18 +1,15 @@
 import { useEffect, useState } from "react";
 import { Menu, Github, Mail, Linkedin, X } from "lucide-react";
 import ExperienceSection from "./components/ExperienceCard";
-import { experiences } from "./constants/Experience";
 import EducationSection from "./components/Education";
 import { education } from "./constants/Education";
-import SkillsSection from "./components/Skills";
-import { skills } from "./constants/skills";
 import anshitaImage from "../src/assets/images/anshitashukla.jpeg";
 import ProjectsSection from "./components/Projects";
 import { projects } from "./constants/Projects";
 import Preloader from "./components/preloader";
 import "./index.css";
 import { ReactTyped } from "react-typed";
-import HeroBackground from "./components/HeroBackground";
+import SkillsPage from "./components/Skills";
 
 const App = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -68,7 +65,7 @@ const App = () => {
                 </button>
               </div>
               {isMobileMenuOpen && (
-                <nav className="md:hidden bg-white shadow-lg absolute top-full left-0 w-full flex flex-col items-center space-y-4 py-4 z-20">
+                <nav className="md:hidden bg-white/90 text-gray-900 shadow-lg absolute top-full left-0 w-full flex flex-col space-y-4 py-4 z-20">
                   <a href="#about" className=" hover:">
                     About
                   </a>
@@ -138,10 +135,11 @@ const App = () => {
           </section>
 
           {/* Skills */}
-          <SkillsSection skills={skills} />
+          <SkillsPage />
 
           {/* Experience */}
-          <ExperienceSection experiences={experiences} />
+          <ExperienceSection />
+          {/* <Timeline items={timelineItems} /> */}
 
           {/* Projects */}
           <ProjectsSection projects={projects} />
