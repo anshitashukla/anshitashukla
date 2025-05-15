@@ -16,6 +16,7 @@ export interface Education {
   institution: string;
   degree: string;
   duration: string;
+  image: string;
 }
 
 export interface EducationSectionProps {
