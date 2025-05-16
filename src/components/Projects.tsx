@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import ProjectCard from "./ProjectCard";
 import personalAIAssistant from "../assets/images/projects/personalAIAssistant.png";
+import growEasy from "../assets/images/projects/growEasy.png";
 
 // Define the Project interface based on the expected structure
 interface Project {
@@ -31,89 +32,63 @@ export const projects = [
       {
         name: "Anshita Shukla",
         img: "https://avatars.githubusercontent.com/u/46316966?v=4",
-        linkedin: "https://www.linkedin.com/in/mann-savani/",
-        github: "https://github.com/Alpha-Stark",
+        linkedin: "https://www.linkedin.com/in/anshita-shukla/",
+        github: "https://github.com/anshitashukla",
       },
     ],
   },
-  /* {
-      id: 1,
-      title: "Atreus",
-      date: "Aug 2023",
-      description: "A social media platform built using Spring Boot and Next.js, supporting real-time posting, AWS S3 media storage, and interactive feeds.",
-      tags: ["Spring Boot", "Next.js", "MySQL", "NextAuth", "AWS S3"],
-      github: "https://github.com/Alpha-Stark/Atreus",
-  }, */
   {
-    id: 2,
-    title: "Data Fort",
-    date: "Aug 2023",
+    id: 1,
+    title: "Grow Easy",
+    date: "Jan 2025",
     description:
-      "A secure Ethereum-based storage solution for drone images, integrating blockchain for data integrity and ML models for image processing.",
-    image: "https://alpha-stark.github.io/images/DataFort.png",
+      "The Grow Easy AI Micro-Learning App is a React Native-based mobile application that delivers bite-sized, interactive lessons through an AI-powered chatbot, enabling users to learn on the go with a seamless and engaging experience.",
+    image: growEasy,
     // image: "https://image.architonic.com/pro1-3/20182762/ps-1440-z-pro-sq-arcit18.jpg",
-    tags: ["Next.js", "React.js", "Solidity", "Tailwind CSS", "Pinata"],
-    category: "machine learning",
-    github: "https://github.com/Alpha-Stark/DataFort",
-    webapp: "https://datafort-1761ff.spheron.app/",
+    tags: [
+      "React Native",
+      "TypeScript",
+      "npm",
+      "Google AI Studio",
+      "Node.js",
+      "JavaScript",
+    ],
+    category: "mobile app",
+    github: "https://github.com/anshitashukla/Grow-Easy-AI-Micro-Learning-APP",
+    webapp: "",
     member: [
       {
-        name: "Mann Savani",
-        img: "https://alpha-stark.github.io/images/MannSavani.jpg",
-        linkedin: "https://www.linkedin.com/in/mann-savani/",
-        github: "https://github.com/Alpha-Stark",
-      },
-      {
-        name: "Hardi Virani",
-        img: "https://alpha-stark.github.io/images/Hardi1a.jpg",
-        linkedin: "https://www.linkedin.com/in/hardi-virani/",
-        github: "https://github.com/hardi-virani",
+        name: "Anshita Shukla",
+        img: "https://avatars.githubusercontent.com/u/46316966?v=4",
+        linkedin: "https://www.linkedin.com/in/anshita-shukla/",
+        github: "https://github.com/anshitashukla",
       },
     ],
   },
-  {
-    id: 2,
-    title: "Promptopia",
-    date: "Nov 2023 - Dec 2023",
-    description:
-      "Promptopia serves as an open-source prompting tool, enabling users to discover, craft, and share creative prompts effortlessly.",
-    image: "https://alpha-stark.github.io/images/Promptopia.png",
-    tags: [
-      "React Js",
-      "MongoDb",
-      "Node Js",
-      "Express Js",
-      "Redux",
-      "Tailwind CSS",
-    ],
-    category: "web app",
-    github: "https://github.com/Alpha-Stark/Promptopia",
-    webapp: "https://alpha-promptopia.vercel.app/",
-  },
-  {
-    id: 3,
-    title: "GitHub Profile Finder",
-    date: "Oct 2023 - Nov 2023",
-    description:
-      "App to explore GitHub users & their profiles for efficient searches & info display.",
-    image: "https://alpha-stark.github.io/images/GitHubFinder.png",
-    tags: ["React Js", "Node Js", "Express Js", "GitHub API", "Tailwind CSS"],
-    category: "web app",
-    github: "https://github.com/Alpha-Stark/github-finder-app",
-    webapp: "https://alpha-github-finder.vercel.app/",
-  },
-  {
-    id: 4,
-    title: "Yelp Camp",
-    date: "May 2023 - Sep 2023",
-    description:
-      "YelpCamp, a full-stack website, allows users to create, review campgrounds, featuring map integration for exploring campground clusters. Built with Node.js, Express, MongoDB, Bootstrap, and Passport.js for authentication.",
-    image: "https://alpha-stark.github.io/images/YelpCamp.png",
-    tags: ["MongoDb", "Node Js", "Express Js", "Tailwind CSS"],
-    category: "web app",
-    github: "https://github.com/Alpha-Stark/YelpCamp",
-    webapp: "",
-  },
+  // {
+  //   id: 3,
+  //   title: "GitHub Profile Finder",
+  //   date: "Oct 2023 - Nov 2023",
+  //   description:
+  //     "App to explore GitHub users & their profiles for efficient searches & info display.",
+  //   image: "https://alpha-stark.github.io/images/GitHubFinder.png",
+  //   tags: ["React Js", "Node Js", "Express Js", "GitHub API", "Tailwind CSS"],
+  //   category: "web app",
+  //   github: "https://github.com/Alpha-Stark/github-finder-app",
+  //   webapp: "https://alpha-github-finder.vercel.app/",
+  // },
+  // {
+  //   id: 4,
+  //   title: "Yelp Camp",
+  //   date: "May 2023 - Sep 2023",
+  //   description:
+  //     "YelpCamp, a full-stack website, allows users to create, review campgrounds, featuring map integration for exploring campground clusters. Built with Node.js, Express, MongoDB, Bootstrap, and Passport.js for authentication.",
+  //   image: "https://alpha-stark.github.io/images/YelpCamp.png",
+  //   tags: ["MongoDb", "Node Js", "Express Js", "Tailwind CSS"],
+  //   category: "web app",
+  //   github: "https://github.com/Alpha-Stark/YelpCamp",
+  //   webapp: "h",
+  // },
 ];
 
 // Styled components with theme matching https://anshitashukla.netlify.app/
@@ -238,13 +213,13 @@ const Projects: React.FC = () => {
           >
             ALL
           </ToggleButton>
-          <Divider />
+          {/* <Divider />
           <ToggleButton
             active={toggle === "web app"}
             onClick={() => handleToggle("web app")}
           >
             WEB APPS
-          </ToggleButton>
+          </ToggleButton> */}
           <Divider />
           <ToggleButton
             active={toggle === "machine learning"}

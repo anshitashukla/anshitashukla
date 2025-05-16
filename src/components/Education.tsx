@@ -66,6 +66,9 @@ const EducationSection: React.FC = () => {
                 {edu.degree}
               </h4>
               <h4 className="text-[0.7rem] text-gray-400">{edu.duration}</h4>
+              <p className="mt-4 text-gray-600 list-disc list-inside space-y-2">
+                {edu.description}
+              </p>
             </VerticalTimelineElement>
           ))}
         </VerticalTimeline>
