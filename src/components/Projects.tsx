@@ -197,7 +197,7 @@ const Projects: React.FC = () => {
   };
 
   return (
-    <Container id="Projects" className="bg-primary">
+    <Container id="projects" className="bg-primary">
       <Wrapper>
         <h2 className="text-3xl font-bold text-white mb-8 text-center">
           Projects

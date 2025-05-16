@@ -199,7 +199,7 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({ skills }) => {
 
 const SkillsPage = () => {
   return (
-    <div className={cn("bg-primary", "p-8 sm:p-12 md:p-16")}>
+    <div id="skills" className={cn("bg-primary", "p-8 sm:p-12 md:p-16")}>
       <div className="max-w-6xl mx-auto">
         <h1 className="text-3xl font-bold text-white mb-8 text-center">
           Skills

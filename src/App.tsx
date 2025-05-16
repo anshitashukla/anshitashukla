@@ -2,10 +2,8 @@ import { useEffect, useState } from "react";
 import { Menu, Github, Mail, Linkedin, X } from "lucide-react";
 import ExperienceSection from "./components/ExperienceCard";
 import EducationSection from "./components/Education";
-import { education } from "./constants/Education";
 import anshitaImage from "../src/assets/images/anshitashukla.jpeg";
 import ProjectsSection from "./components/Projects";
-import { projects } from "./constants/Projects";
 import Preloader from "./components/preloader";
 import "./index.css";
 import { ReactTyped } from "react-typed";
@@ -14,7 +12,6 @@ import SkillsPage from "./components/Skills";
 const App = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [visible, setVisible] = useState<boolean>(true);
-  const [currentText, setCurrentText] = useState("");
 
   // Hide preloader after a fixed 3-second delay
   useEffect(() => {
@@ -31,24 +28,24 @@ const App = () => {
         <Preloader />
       ) : (
         <div className="min-h-screen from-blue-200 to-purple-300">
-          <header className="bg-primary text-white shadow-sm relative">
+          <header className="bg-primary text-white shadow-sm fixed top-0 left-0 right-0 z-30">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="flex justify-between items-center py-4">
                 <h1 className="text-xl font-bold">Anshita Shukla</h1>
                 <nav className="hidden md:flex space-x-8">
-                  <a href="#about" className=" hover:">
+                  <a href="#about" className=" hover:text-gray-300">
                     About
                   </a>
-                  <a href="#skills" className=" hover:">
+                  <a href="#skills" className=" hover:text-gray-300">
                     Skills
                   </a>
-                  <a href="#experience" className=" hover:">
+                  <a href="#experience" className=" hover:text-gray-300">
                     Experience
                   </a>
-                  <a href="#projects" className=" hover:">
+                  <a href="#projects" className=" hover:text-gray-300">
                     Projects
                   </a>
-                  <a href="#education" className=" hover:">
+                  <a href="#education" className=" hover:text-gray-300">
                     Education
                   </a>
                 </nav>
@@ -65,17 +62,20 @@ const App = () => {
                 </button>
               </div>
               {isMobileMenuOpen && (
-                <nav className="md:hidden bg-white/90 text-gray-900 shadow-lg absolute top-full left-0 w-full flex flex-col space-y-4 py-4 z-20">
-                  <a href="#about" className=" hover:">
+                <nav className="md:hidden bg-white/90 text-gray-900 shadow-lg absolute top-full left-0 w-full flex flex-col space-y-4 py-4 px-4 z-20">
+                  <a href="#about" className=" hover:text-primary">
                     About
                   </a>
-                  <a href="#skills" className=" hover:">
+                  <a href="#skills" className=" hover:text-primary">
                     Skills
                   </a>
-                  <a href="#experience" className=" hover:">
+                  <a href="#experience" className=" hover:text-primary">
                     Experience
                   </a>
-                  <a href="#education" className=" hover:">
+                  <a href="#projects" className=" hover:text-primary">
+                    Projects
+                  </a>
+                  <a href="#education" className=" hover:text-primary">
                     Education
                   </a>
                 </nav>
@@ -85,7 +85,7 @@ const App = () => {
 
           <section
             id="red"
-            className="relative bg-primary text-center py-24 overflow-hidden"
+            className="relative bg-primary text-center pb-24 overflow-hidden pt-40 md:mt-0"
           >
             {/* <HeroBackground /> */}
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -112,21 +112,43 @@ const App = () => {
                 complex problems with clean, efficient code.
               </p>
               <div className="mt-8 flex justify-center space-x-6">
+                {/* <button
+                  type="button"
+                  className="relative py-2.5 px-5 me-2 mb-2 text-sm font-medium text-white border-2 border-white hover:text-purple-900 focus:outline-none focus:ring-2 focus:ring-white overflow-hidden group self-center"
+                >
+                  <span className="absolute inset-0 w-0 bg-white transition-all duration-300 ease-in-out group-hover:w-full"></span>
+                  <span className="relative z-10">Resume</span>
+                </button> */}
+                <a
+                  href="https://drive.google.com/file/d/1ssclFxwHlX724jugj0cFDP6dUwmj5WI7/view?usp=sharing"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block"
+                >
+                  <button
+                    type="button"
+                    className="relative py-2.5 px-5 me-2 mb-2 text-sm font-medium text-white border-2 border-white hover:text-purple-900 focus:outline-none focus:ring-2 focus:ring-white overflow-hidden group self-center"
+                  >
+                    <span className="absolute inset-0 w-0 bg-white transition-all duration-300 ease-in-out group-hover:w-full"></span>
+                    <span className="relative z-10">Resume</span>
+                  </button>
+                </a>
+
                 <a
                   href="https://github.com/anshitashukla"
-                  className="text-white hover:"
+                  className="text-white hover:text-gray-300 self-center"
                 >
                   <Github className="h-6 w-6" />
                 </a>
                 <a
                   href="https://linkedin.com/in/anshita-shukla"
-                  className="text-white hover:"
+                  className="text-white hover:text-gray-300 self-center"
                 >
                   <Linkedin className="h-6 w-6" />
                 </a>
                 <a
                   href="mailto:anshitashukla0102@gmail.com"
-                  className="text-white hover:"
+                  className="text-white hover:text-gray-300 self-center"
                 >
                   <Mail className="h-6 w-6" />
                 </a>
@@ -142,28 +164,28 @@ const App = () => {
           {/* <Timeline items={timelineItems} /> */}
 
           {/* Projects */}
-          <ProjectsSection projects={projects} />
+          <ProjectsSection />
 
           {/* Education */}
-          <EducationSection education={education} />
+          <EducationSection />
 
           <footer className="bg-gray-900 text-white py-2 text-center">
             <div className="mt-8 flex justify-center space-x-6">
               <a
                 href="https://github.com/anshitashukla"
-                className="text-gray-500 hover:"
+                className="text-gray-500 hover:text-gray-300"
               >
                 <Github className="h-6 w-6" />
               </a>
               <a
                 href="https://linkedin.com/in/anshita-shukla"
-                className="text-gray-500 hover:"
+                className="text-gray-500 hover:text-gray-300"
               >
                 <Linkedin className="h-6 w-6" />
               </a>
               <a
                 href="mailto:anshitashukla0102@gmail.com"
-                className="text-gray-500 hover:"
+                className="text-gray-500 hover:text-gray-300"
               >
                 <Mail className="h-6 w-6" />
               </a>
