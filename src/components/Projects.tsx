@@ -4,6 +4,7 @@ import ProjectCard from "./ProjectCard";
 import personalAIAssistant from "../assets/images/projects/personalAIAssistant.png";
 import growEasy from "../assets/images/projects/growEasy.png";
 import imageCorruption from "../assets/images/projects/imageCorruption.webp";
+import easyBill from "../assets/images/projects/easyBill.png";
 
 // Define the Project interface based on the expected structure
 interface Project {
@@ -40,6 +41,27 @@ export const projects = [
   },
   {
     id: 1,
+    title: "Easy Bill",
+    date: "May 2025",
+    description:
+      "Easy-Bill is a user-friendly billing application designed to streamline invoice creation and management. Built with modern web technologies, it offers an intuitive interface for generating professional invoices quickly.",
+    image: easyBill,
+    // image: "https://image.architonic.com/pro1-3/20182762/ps-1440-z-pro-sq-arcit18.jpg",
+    tags: ["React.js", "Tailwind CSS", "JavaScript", "React Bootstrap"],
+    category: "web app",
+    github: "https://github.com/anshitashukla/Easy-Bill",
+    webapp: "https://anshitashuklaeasybill.netlify.app/",
+    member: [
+      {
+        name: "Anshita Shukla",
+        img: "https://avatars.githubusercontent.com/u/46316966?v=4",
+        linkedin: "https://www.linkedin.com/in/anshita-shukla/",
+        github: "https://github.com/anshitashukla",
+      },
+    ],
+  },
+  {
+    id: 2,
     title: "Grow Easy",
     date: "Jan 2025",
     description:
@@ -67,7 +89,7 @@ export const projects = [
     ],
   },
   {
-    id: 2,
+    id: 3,
     title: "ResNet50-PyTorch-ImageCorruption-Accuracy",
     date: "Jan 2025",
     description:
@@ -219,13 +241,13 @@ const Projects: React.FC = () => {
           >
             ALL
           </ToggleButton>
-          {/* <Divider />
+          <Divider />
           <ToggleButton
             active={toggle === "web app"}
             onClick={() => handleToggle("web app")}
           >
             WEB APPS
-          </ToggleButton> */}
+          </ToggleButton>
           <Divider />
           <ToggleButton
             active={toggle === "machine learning"}
