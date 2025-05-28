@@ -3,6 +3,7 @@ import styled from "styled-components";
 import ProjectCard from "./ProjectCard";
 import personalAIAssistant from "../assets/images/projects/personalAIAssistant.png";
 import growEasy from "../assets/images/projects/growEasy.png";
+import imageCorruption from "../assets/images/projects/imageCorruption.webp";
 
 // Define the Project interface based on the expected structure
 interface Project {
@@ -65,30 +66,35 @@ export const projects = [
       },
     ],
   },
-  // {
-  //   id: 3,
-  //   title: "GitHub Profile Finder",
-  //   date: "Oct 2023 - Nov 2023",
-  //   description:
-  //     "App to explore GitHub users & their profiles for efficient searches & info display.",
-  //   image: "https://alpha-stark.github.io/images/GitHubFinder.png",
-  //   tags: ["React Js", "Node Js", "Express Js", "GitHub API", "Tailwind CSS"],
-  //   category: "web app",
-  //   github: "https://github.com/Alpha-Stark/github-finder-app",
-  //   webapp: "https://alpha-github-finder.vercel.app/",
-  // },
-  // {
-  //   id: 4,
-  //   title: "Yelp Camp",
-  //   date: "May 2023 - Sep 2023",
-  //   description:
-  //     "YelpCamp, a full-stack website, allows users to create, review campgrounds, featuring map integration for exploring campground clusters. Built with Node.js, Express, MongoDB, Bootstrap, and Passport.js for authentication.",
-  //   image: "https://alpha-stark.github.io/images/YelpCamp.png",
-  //   tags: ["MongoDb", "Node Js", "Express Js", "Tailwind CSS"],
-  //   category: "web app",
-  //   github: "https://github.com/Alpha-Stark/YelpCamp",
-  //   webapp: "h",
-  // },
+  {
+    id: 2,
+    title: "ResNet50-PyTorch-ImageCorruption-Accuracy",
+    date: "Jan 2025",
+    description:
+      "The ResNet50-PyTorch-ImageCorruption-Accuracy project is a Python-based implementation using PyTorch to evaluate the ResNet50 model's performance on image classification tasks under various image corruption scenarios, analyzing accuracy impacts with datasets processed through NumPy, Matplotlib, and PIL for robust computer vision research.",
+    image: imageCorruption,
+    // image: "https://image.architonic.com/pro1-3/20182762/ps-1440-z-pro-sq-arcit18.jpg",
+    tags: [
+      "PyTorch",
+      "Python",
+      "Jupyter Notebook",
+      "NumPy",
+      "Matplotlib",
+      "PIL",
+    ],
+    category: "machine learning",
+    github:
+      "https://github.com/anshitashukla/ResNet50-PyTorch-ImageCorruption-Accuracy",
+    webapp: "",
+    member: [
+      {
+        name: "Anshita Shukla",
+        img: "https://avatars.githubusercontent.com/u/46316966?v=4",
+        linkedin: "https://www.linkedin.com/in/anshita-shukla/",
+        github: "https://github.com/anshitashukla",
+      },
+    ],
+  },
 ];
 
 // Styled components with theme matching https://anshitashukla.netlify.app/
