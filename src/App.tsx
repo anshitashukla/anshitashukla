@@ -119,7 +119,7 @@ const App = () => {
                   <span className="absolute inset-0 w-0 bg-white transition-all duration-300 ease-in-out group-hover:w-full"></span>
                   <span className="relative z-10">Resume</span>
                 </button> */}
-                <a
+                {/* <a
                   href="https://drive.google.com/file/d/1ssclFxwHlX724jugj0cFDP6dUwmj5WI7/view?usp=sharing"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -132,7 +132,7 @@ const App = () => {
                     <span className="absolute inset-0 w-0 bg-white transition-all duration-300 ease-in-out group-hover:w-full"></span>
                     <span className="relative z-10">Resume</span>
                   </button>
-                </a>
+                </a> */}
 
                 <a
                   href="https://github.com/anshitashukla"
