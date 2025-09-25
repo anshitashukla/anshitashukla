@@ -31,7 +31,7 @@ export const experiences: Experience[] = [
     duration: "Nov. 2020 – Dec. 2023",
     location: "Pune, MH, India",
     responsibilities: [
-      "Led a team of 6 in building scalable microservices with Node.js, Express.js, and TypeScript, resulting in a 30% automation of carrier onboarding via REST APIs and MongoDB.",
+      "Led a team of 6 in building scalable microservices with Node.js, Express.js, TypeScript and MongoDB.",
       "Architected a high-performance micro-frontend for a React.js application using Ant Design and Redux, achieving a 40% faster load time.",
       "Took end-to-end ownership of integrating Stripe and PayPal payment processing and implementing a secure authentication and notification system leveraging Amazon Cognito, SNS, and SES.",
     ],
