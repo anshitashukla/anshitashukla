@@ -1,0 +1,43 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  background: #1a1a1a;
+  color: #ffffff;
+  scroll-behavior: smooth;
+}
+
+.highlight {
+  color: #ff007a; /* Neon pink */
+}
+
+.btn {
+  border: 2px solid #00ddeb; /* Neon blue */
+  padding: 10px 20px;
+  color: #00ddeb;
+  text-decoration: none;
+  transition: all 0.3s;
+  &:hover {
+    background: #00ddeb;
+    color: #1a1a1a;
+  }
+}
+
+section {
+  padding: 100px 50px;
+}
+
+.ant-card {
+  background: #333;
+  border: 2px solid #00ddeb;
+  color: #ffffff;
+}
+
+.ant-menu {
+  a {
+    color: #ffffff !important;
+    &:hover {
+      color: #ff007a !important;
+    }
+  }
+}

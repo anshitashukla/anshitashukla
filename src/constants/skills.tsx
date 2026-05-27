@@ -38,7 +38,7 @@ export const skills: Skill[] = [
     iconClass: "devicon-redux-original colored",
     percentage: 95,
   },
-  { name: "Express.js", iconClass: "devicon-express-original", percentage: 85 },
+  { name: "Express.js", iconClass: "devicon-express-original colored", percentage: 85 },
   {
     name: "MongoDB",
     iconClass: "devicon-mongodb-plain colored",
