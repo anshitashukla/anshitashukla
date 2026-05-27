@@ -6,6 +6,7 @@ export interface Experience {
   image: string;
   location: string;
   skills: string[];
+  current?: boolean;
 }
 
 export interface ExperienceSectionProps {

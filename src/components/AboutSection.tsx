@@ -19,19 +19,19 @@ const highlights: {
     icon: Rocket,
     brand: "rocket",
     title: "Scale & business impact",
-    desc: "Scaled platforms to 1M+ users; payments integration drove 60% revenue growth at Scalex.",
+    desc: "60% revenue growth and 35% more successful transactions via Stripe & PayPal at Scalex.",
   },
   {
     icon: Code2,
     brand: "code",
     title: "Systems & product craft",
-    desc: "Microservices, AWS, React micro-frontends — 40% faster loads, 20% smaller bundles.",
+    desc: "MCP servers for LLM agents, micro-frontends (40% faster loads), and 20% smaller Webpack bundles.",
   },
   {
     icon: Users,
     brand: "users",
     title: "Technical leadership",
-    desc: "Led 6 engineers; owned architecture, CI/CD, code quality, and on-time delivery.",
+    desc: "Led 6 engineers across microservices, CI/CD, security hardening, and production delivery.",
   },
 ];
 

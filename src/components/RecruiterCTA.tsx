@@ -19,8 +19,8 @@ const RecruiterCTA = () => (
         <h2 className="recruiter-cta-title">Let&apos;s talk about your next opening</h2>
         <p className="recruiter-cta-text">
           I&apos;m actively exploring Software Engineer opportunities where I can contribute to
-          scalable systems, strong engineering culture, and user-facing products. Happy to share
-          resume, work samples, and references.
+          scalable systems, strong engineering culture, and user-facing products. Reach me at{" "}
+          {profile.email} or {profile.phone}.
         </p>
         <StaggerChildren className="recruiter-facts" stagger={0.05}>
           {recruiterQuickFacts.map((fact) => (
@@ -36,9 +36,16 @@ const RecruiterCTA = () => (
           <ColorIcon icon={Mail} brand="mail" className="h-4 w-4" />
           Email me
         </MotionLink>
-        <MotionLink href={profile.resumeMailto} variant="outline" className="recruiter-btn">
+        <MotionLink
+          href={profile.resumeUrl}
+          variant="outline"
+          className="recruiter-btn"
+          target="_blank"
+          rel="noopener noreferrer"
+          download
+        >
           <ColorIcon icon={FileText} brand="file" className="h-4 w-4" />
-          Request resume
+          Download resume
         </MotionLink>
         <MotionLink
           href={profile.linkedin}

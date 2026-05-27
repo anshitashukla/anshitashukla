@@ -18,17 +18,31 @@ const Navbar = ({ scrolled }: { scrolled: boolean }) => {
   const [activeSection, setActiveSection] = useState("");
 
   useEffect(() => {
-    const sections = navLinks.map((l) => document.querySelector(l.href));
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) setActiveSection(`#${entry.target.id}`);
-        });
-      },
-      { rootMargin: "-40% 0px -50% 0px" }
-    );
-    sections.forEach((s) => s && observer.observe(s));
-    return () => observer.disconnect();
+    const sectionIds = navLinks.map((link) => link.href.slice(1));
+
+    const updateActiveSection = () => {
+      const marker = window.innerHeight * 0.35;
+      let current = sectionIds[0];
+
+      for (const id of sectionIds) {
+        const el = document.getElementById(id);
+        if (!el) continue;
+        if (el.getBoundingClientRect().top <= marker) {
+          current = id;
+        }
+      }
+
+      setActiveSection(`#${current}`);
+    };
+
+    updateActiveSection();
+    window.addEventListener("scroll", updateActiveSection, { passive: true });
+    window.addEventListener("resize", updateActiveSection);
+
+    return () => {
+      window.removeEventListener("scroll", updateActiveSection);
+      window.removeEventListener("resize", updateActiveSection);
+    };
   }, []);
 
   return (

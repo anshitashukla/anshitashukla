@@ -17,7 +17,7 @@ const ExperienceSection = () => (
     <VerticalTimeline lineColor="#e4e4e7">
       {experiences.map((exp, index) => (
         <VerticalTimelineElement
-          key={index}
+          key={`${exp.company}-${exp.duration}`}
           date={exp.duration}
           iconStyle={{
             background: "#fafafa",
@@ -41,15 +41,13 @@ const ExperienceSection = () => (
             transition={{ duration: 0.5, delay: index * 0.08 }}
             whileHover={{ x: index % 2 === 0 ? 4 : -4 }}
           >
-            <h3 className="timeline-role">{exp.title}</h3>
+            <h3 className="timeline-role">
+              {exp.title}
+              {exp.current ? <span className="timeline-current-badge">Current</span> : null}
+            </h3>
             <p className="timeline-org">{exp.company}</p>
             <p className="timeline-location">{exp.location}</p>
-            {index === 1 && (
-              <p className="timeline-impact-badge">Leadership · 1M+ users · Payments & AWS</p>
-            )}
-            {index === 2 && (
-              <p className="timeline-impact-badge">90% test coverage · 75% fewer redundant queries</p>
-            )}
+
             <ul className="timeline-list">
               {exp.responsibilities.map((point, i) => (
                 <motion.li
@@ -63,12 +61,16 @@ const ExperienceSection = () => (
                 </motion.li>
               ))}
             </ul>
-            <div className="chip-row" style={{ marginTop: "1rem" }}>
-              {exp.skills.slice(0, 6).map((s) => (
-                <span key={s} className="tag">
-                  {s}
-                </span>
-              ))}
+
+            <div className="timeline-skills">
+              <p className="timeline-skills-label">Technologies & skills</p>
+              <div className="timeline-skills-list">
+                {exp.skills.map((skill) => (
+                  <span key={skill} className="timeline-skill-badge">
+                    {skill}
+                  </span>
+                ))}
+              </div>
             </div>
           </motion.div>
         </VerticalTimelineElement>

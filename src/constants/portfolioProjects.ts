@@ -2,6 +2,8 @@ import personalAIAssistant from "../assets/images/projects/personalAIAssistant.p
 import growEasy from "../assets/images/projects/growEasy.png";
 import imageCorruption from "../assets/images/projects/imageCorruption.webp";
 import easyBill from "../assets/images/projects/easyBill.png";
+import simplysponsorHome from "../assets/images/projects/simplysponsor-home.png";
+import simplysponsorInternships from "../assets/images/projects/simplysponsor-internships.png";
 
 export interface PortfolioProject {
   id: number;
@@ -9,15 +11,34 @@ export interface PortfolioProject {
   date: string;
   description: string;
   image: string;
+  images?: string[];
   tags: string[];
   category: "web app" | "machine learning" | "mobile app";
-  github: string;
+  github?: string;
   webapp?: string;
   impact: string[];
   highlight?: string;
 }
 
 export const portfolioProjects: PortfolioProject[] = [
+  {
+    id: 4,
+    title: "Simply Sponsor",
+    date: "2025 – Present",
+    description:
+      "Live sponsorship-friendly job and internship board — search, filters, H1B sponsor tags, and internships synced from Google Sheets.",
+    image: simplysponsorHome,
+    images: [simplysponsorHome, simplysponsorInternships],
+    tags: ["Next.js", "React", "TypeScript", "Tailwind"],
+    category: "web app",
+    webapp: "https://simplysponsor.com/",
+    highlight: "Currently in production",
+    impact: [
+      "End-to-end product for international talent seeking visa-friendly roles",
+      "Jobs + internships with advanced filters and employer-grade listing UX",
+      "Shipped and iterating at simplysponsor.com",
+    ],
+  },
   {
     id: 0,
     title: "Personal AI Assistant",

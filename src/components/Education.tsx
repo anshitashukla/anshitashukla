@@ -44,6 +44,9 @@ const EducationSection = () => (
           >
             <h3 className="timeline-role">{edu.institution}</h3>
             <p className="timeline-org">{edu.degree}</p>
+            <p className="timeline-location">
+              {index === 0 ? "Washington, D.C." : "Bhopal, MP, India"}
+            </p>
             <p className="highlight-text" style={{ marginTop: "0.75rem" }}>
               {edu.description}
             </p>

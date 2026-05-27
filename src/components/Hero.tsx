@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowDown, ChevronRight, FileText, Github, Linkedin, Mail, MapPin } from "lucide-react";
+import { ArrowDown, ChevronRight, ExternalLink, FileText, Github, Linkedin, Mail, MapPin } from "lucide-react";
 import anshitaImage from "../assets/images/anshitashukla.jpeg";
 import { profile } from "../constants/profile";
 import MotionLink from "./ui/MotionLink";
@@ -12,8 +12,8 @@ import {
 } from "../utils/motion";
 
 const stats = [
-  { value: "5+", label: "Years experience" },
-  { value: "1M+", label: "Users scaled" },
+  { value: "4+", label: "Years experience" },
+  { value: "60%", label: "Revenue growth" },
   { value: "MS CS", label: "George Washington" },
 ];
 
@@ -54,19 +54,32 @@ const Hero = () => (
           {profile.status}
         </motion.div>
 
-        <motion.p className="hero-role" variants={fadeUpSoft} transition={defaultTransition}>
-          {profile.headline}
-        </motion.p>
+        <motion.a
+          href={profile.currentWork.url}
+          className="hero-current-work"
+          variants={fadeUpSoft}
+          transition={defaultTransition}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <span className="hero-current-work-label">{profile.currentWork.label}</span>
+          <span className="hero-current-work-title">{profile.currentWork.title}</span>
+          <ColorIcon icon={ExternalLink} brand="external" className="h-3.5 w-3.5" />
+        </motion.a>
 
         <motion.h1 className="hero-name" variants={fadeUpSoft} transition={defaultTransition}>
           {profile.name}
         </motion.h1>
 
+        <motion.p className="hero-headline" variants={fadeUpSoft} transition={defaultTransition}>
+          {profile.headline}
+        </motion.p>
+
         <motion.p className="hero-location" variants={fadeUpSoft} transition={defaultTransition}>
           <ColorIcon icon={MapPin} brand="mapPin" className="h-3.5 w-3.5" />
-          {profile.location}
+          <span>{profile.location}</span>
           <span className="hero-location-sep">·</span>
-          {profile.educationHighlight}
+          <strong>{profile.educationHighlight}</strong>
         </motion.p>
 
         <motion.p className="hero-lead" variants={fadeUpSoft} transition={defaultTransition}>
@@ -85,9 +98,15 @@ const Hero = () => (
               <ColorIcon icon={ChevronRight} brand="chevron" className="h-4 w-4" />
             </motion.span>
           </MotionLink>
-          <MotionLink href={profile.resumeMailto} variant="outline">
+          <MotionLink
+            href={profile.resumeUrl}
+            variant="outline"
+            target="_blank"
+            rel="noopener noreferrer"
+            download
+          >
             <ColorIcon icon={FileText} brand="file" className="h-4 w-4" />
-            Resume
+            Download resume
           </MotionLink>
           <MotionLink href="#projects" variant="outline">
             View work

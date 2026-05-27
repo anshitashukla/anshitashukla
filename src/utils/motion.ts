@@ -61,7 +61,8 @@ export const defaultTransition: Transition = {
   ease: EASE_OUT_EXPO,
 };
 
-export const viewportOnce = { once: true, margin: "-60px" as const };
+/** Prefer amount over negative margin — negative margins break nested in-view on mobile. */
+export const viewportOnce = { once: true, amount: 0.15 as const };
 
 export const hoverLift = {
   y: -4,

@@ -1,26 +1,33 @@
-import { motion } from "framer-motion";
+import { useRef } from "react";
+import { motion, useInView, useReducedMotion } from "framer-motion";
 import { skills as allSkills } from "../constants/skills";
 import Section from "./ui/Section";
 import SectionTitle from "./ui/SectionTitle";
-import Card from "./ui/Card";
-import StaggerChildren, { StaggerItem } from "./motion/StaggerChildren";
-import { viewportOnce } from "../utils/motion";
+import { EASE_OUT_EXPO, fadeUpSoft, staggerContainer } from "../utils/motion";
 
-const SkillsPage = () => (
-  <Section id="skills">
-    <SectionTitle
-      eyebrow="Skills"
-      title="Technical depth"
-      description="Production stack across frontend, backend, cloud, and quality — aligned with large-scale product engineering."
-    />
+const SkillsPage = () => {
+  const gridRef = useRef<HTMLDivElement>(null);
+  const reduceMotion = useReducedMotion();
+  const skillsInView = useInView(gridRef, { once: true, amount: 0.12 });
+  const showBars = reduceMotion || skillsInView;
 
-    <StaggerChildren
-      className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4"
-      stagger={0.05}
-    >
-      {allSkills.map((skill, i) => (
-        <StaggerItem key={skill.name}>
-          <Card className="p-5" delay={i * 0.02}>
+  return (
+    <Section id="skills">
+      <SectionTitle
+        eyebrow="Skills"
+        title="Technical depth"
+        description="Production stack across frontend, backend, cloud, and quality — aligned with large-scale product engineering."
+      />
+
+      <motion.div
+        ref={gridRef}
+        className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4"
+        initial="hidden"
+        animate={showBars ? "visible" : "hidden"}
+        variants={staggerContainer(0.05)}
+      >
+        {allSkills.map((skill, i) => (
+          <motion.div key={skill.name} className="card p-5" variants={fadeUpSoft}>
             <div className="skill-meta">
               <motion.i
                 className={`skill-devicon ${skill.iconClass}`}
@@ -30,23 +37,24 @@ const SkillsPage = () => (
               />
               <span className="skill-pct">{skill.percentage}%</span>
             </div>
-            <p className="skill-name" style={{ marginTop: "0.75rem" }}>
-              {skill.name}
-            </p>
+            <p className="skill-name">{skill.name}</p>
             <div className="skill-bar">
               <motion.div
                 className="skill-bar-fill"
-                initial={{ width: 0 }}
-                whileInView={{ width: `${skill.percentage}%` }}
-                viewport={viewportOnce}
-                transition={{ duration: 0.9, delay: i * 0.03, ease: [0.22, 1, 0.36, 1] }}
+                initial={false}
+                animate={{ scaleX: showBars ? skill.percentage / 100 : 0 }}
+                transition={{
+                  duration: reduceMotion ? 0 : 0.85,
+                  delay: reduceMotion ? 0 : showBars ? i * 0.03 : 0,
+                  ease: EASE_OUT_EXPO,
+                }}
               />
             </div>
-          </Card>
-        </StaggerItem>
-      ))}
-    </StaggerChildren>
-  </Section>
-);
+          </motion.div>
+        ))}
+      </motion.div>
+    </Section>
+  );
+};
 
 export default SkillsPage;

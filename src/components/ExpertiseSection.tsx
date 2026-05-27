@@ -18,6 +18,13 @@ const ExpertiseSection = () => (
           <Card className="expertise-card p-6" delay={i * 0.04}>
             <h3 className="expertise-title">{area.title}</h3>
             <p className="expertise-desc">{area.description}</p>
+            {"highlights" in area && area.highlights?.length ? (
+              <ul className="expertise-highlights">
+                {area.highlights.map((point) => (
+                  <li key={point}>{point}</li>
+                ))}
+              </ul>
+            ) : null}
             <div className="chip-row" style={{ marginTop: "1rem" }}>
               {area.tags.map((tag) => (
                 <span key={tag} className="tag tag-tech">

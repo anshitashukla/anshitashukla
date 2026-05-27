@@ -11,6 +11,7 @@ interface MotionLinkProps {
   className?: string;
   target?: string;
   rel?: string;
+  download?: boolean | string;
   onClick?: () => void;
 }
 
@@ -27,6 +28,7 @@ const MotionLink = ({
   className = "",
   target,
   rel,
+  download,
   onClick,
 }: MotionLinkProps) => (
   <motion.a
@@ -34,6 +36,7 @@ const MotionLink = ({
     className={`${variantClass[variant]} ${className}`.trim()}
     target={target}
     rel={rel}
+    download={download}
     onClick={onClick}
     whileHover={variant === "icon" ? { y: -2, scale: 1.04 } : hoverLift}
     whileTap={tapPress}
