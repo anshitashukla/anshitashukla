@@ -1,200 +1,120 @@
 import { useEffect, useState } from "react";
-import { Menu, Github, Mail, Linkedin, X } from "lucide-react";
+import { Github, Mail, Linkedin } from "lucide-react";
+import ColorIcon from "./components/ui/ColorIcon";
+import { motion, AnimatePresence } from "framer-motion";
 import ExperienceSection from "./components/ExperienceCard";
 import EducationSection from "./components/Education";
-import anshitaImage from "../src/assets/images/anshitashukla.jpeg";
 import ProjectsSection from "./components/Projects";
 import Preloader from "./components/preloader";
-import "./index.css";
-import { ReactTyped } from "react-typed";
 import SkillsPage from "./components/Skills";
+import Hero from "./components/Hero";
+import Navbar from "./components/Navbar";
+import AboutSection from "./components/AboutSection";
+import ImpactStrip from "./components/ImpactStrip";
+import CompanyStrip from "./components/CompanyStrip";
+import ExpertiseSection from "./components/ExpertiseSection";
+import RecruiterCTA from "./components/RecruiterCTA";
+import RecruiterBar from "./components/RecruiterBar";
+import ScrollProgress from "./components/ScrollProgress";
+import { profile } from "./constants/profile";
+import "./index.css";
 
 const App = () => {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [visible, setVisible] = useState<boolean>(true);
+  const [ready, setReady] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
-  // Hide preloader after a fixed 3-second delay
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setVisible(false);
-    }, 1500);
-
+    const timer = setTimeout(() => setReady(true), 1400);
     return () => clearTimeout(timer);
+  }, []);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 24);
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   return (
     <>
-      {visible ? (
-        <Preloader />
-      ) : (
-        <div className="min-h-screen from-blue-200 to-purple-300">
-          <header className="bg-primary text-white shadow-sm fixed top-0 left-0 right-0 z-30">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="flex justify-between items-center py-4">
-                <h1 className="text-xl font-bold">Anshita Shukla</h1>
-                <nav className="hidden md:flex space-x-8">
-                  <a href="#about" className=" hover:text-gray-300">
-                    About
-                  </a>
-                  <a href="#skills" className=" hover:text-gray-300">
-                    Skills
-                  </a>
-                  <a href="#experience" className=" hover:text-gray-300">
-                    Experience
-                  </a>
-                  <a href="#projects" className=" hover:text-gray-300">
-                    Projects
-                  </a>
-                  <a href="#education" className=" hover:text-gray-300">
-                    Education
-                  </a>
-                </nav>
-                <button
-                  className="md:hidden"
-                  onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                  aria-label="Toggle menu"
-                >
-                  {isMobileMenuOpen ? (
-                    <X className="h-6 w-6 " />
-                  ) : (
-                    <Menu className="h-6 w-6 " />
-                  )}
-                </button>
-              </div>
-              {isMobileMenuOpen && (
-                <nav className="md:hidden bg-white/90 text-gray-900 shadow-lg absolute top-full left-0 w-full flex flex-col space-y-4 py-4 px-4 z-20">
-                  <a href="#about" className=" hover:text-primary">
-                    About
-                  </a>
-                  <a href="#skills" className=" hover:text-primary">
-                    Skills
-                  </a>
-                  <a href="#experience" className=" hover:text-primary">
-                    Experience
-                  </a>
-                  <a href="#projects" className=" hover:text-primary">
-                    Projects
-                  </a>
-                  <a href="#education" className=" hover:text-primary">
-                    Education
-                  </a>
-                </nav>
-              )}
-            </div>
-          </header>
+      <AnimatePresence mode="wait">
+        {!ready && <Preloader key="preloader" />}
+      </AnimatePresence>
 
-          <section
-            id="red"
-            className="relative bg-primary text-center pb-24 overflow-hidden pt-40 md:mt-0"
+      {ready && (
+        <motion.div
+          className="site"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
+        >
+          <ScrollProgress />
+          <Navbar scrolled={scrolled} />
+
+          <RecruiterBar />
+
+          <main>
+            <Hero />
+            <ImpactStrip />
+            <CompanyStrip />
+            <AboutSection />
+            <ExpertiseSection />
+            <SkillsPage />
+            <ExperienceSection />
+            <ProjectsSection />
+            <EducationSection />
+            <RecruiterCTA />
+          </main>
+
+          <motion.footer
+            className="site-footer"
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-40px" }}
+            transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
           >
-            {/* <HeroBackground /> */}
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-              <img
-                src={anshitaImage}
-                alt="Anshita Shukla"
-                className="rounded-full w-32 h-32 mx-auto mb-6"
-              />
-              <p className="sm:text-2xl text-white">I am </p>
-              <ReactTyped
-                strings={[
-                  "Fullstack Developer",
-                  "Software Engineer",
-                  "Web Developer",
-                  "Mobile App Developer",
-                ]}
-                className="text-3xl text-white font-bold  sm:text-5xl"
-                typeSpeed={60}
-                backSpeed={30}
-                loop={true}
-              />
-              <p className="mt-6 text-xl max-w-2xl mx-auto text-white">
-                Passionate about building scalable applications and solving
-                complex problems with clean, efficient code.
-              </p>
-              <div className="mt-8 flex justify-center space-x-6">
-                {/* <button
-                  type="button"
-                  className="relative py-2.5 px-5 me-2 mb-2 text-sm font-medium text-white border-2 border-white hover:text-purple-900 focus:outline-none focus:ring-2 focus:ring-white overflow-hidden group self-center"
-                >
-                  <span className="absolute inset-0 w-0 bg-white transition-all duration-300 ease-in-out group-hover:w-full"></span>
-                  <span className="relative z-10">Resume</span>
-                </button> */}
-                {/* <a
-                  href="https://drive.google.com/file/d/1ssclFxwHlX724jugj0cFDP6dUwmj5WI7/view?usp=sharing"
+            <motion.p
+              className="footer-title"
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.05 }}
+            >
+              {profile.name} — ready for your team
+            </motion.p>
+            <motion.div
+              className="footer-social"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={{
+                hidden: {},
+                visible: { transition: { staggerChildren: 0.08, delayChildren: 0.1 } },
+              }}
+            >
+              {[
+                { href: profile.github, brand: "github" as const, icon: Github },
+                { href: profile.linkedin, brand: "linkedin" as const, icon: Linkedin },
+                { href: `mailto:${profile.email}`, brand: "mail" as const, icon: Mail },
+              ].map(({ href, brand, icon: Icon }) => (
+                <motion.a
+                  key={href}
+                  href={href}
+                  className={`icon-link icon-link-brand icon-link-brand--${brand}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-block"
+                  variants={{ hidden: { opacity: 0, y: 10 }, visible: { opacity: 1, y: 0 } }}
+                  whileHover={{ y: -3, scale: 1.05 }}
+                  whileTap={{ scale: 0.96 }}
                 >
-                  <button
-                    type="button"
-                    className="relative py-2.5 px-5 me-2 mb-2 text-sm font-medium text-white border-2 border-white hover:text-purple-900 focus:outline-none focus:ring-2 focus:ring-white overflow-hidden group self-center"
-                  >
-                    <span className="absolute inset-0 w-0 bg-white transition-all duration-300 ease-in-out group-hover:w-full"></span>
-                    <span className="relative z-10">Resume</span>
-                  </button>
-                </a> */}
-
-                <a
-                  href="https://github.com/anshitashukla"
-                  className="text-white hover:text-gray-300 self-center"
-                >
-                  <Github className="h-6 w-6" />
-                </a>
-                <a
-                  href="https://linkedin.com/in/anshita-shukla"
-                  className="text-white hover:text-gray-300 self-center"
-                >
-                  <Linkedin className="h-6 w-6" />
-                </a>
-                <a
-                  href="mailto:anshitashukla0102@gmail.com"
-                  className="text-white hover:text-gray-300 self-center"
-                >
-                  <Mail className="h-6 w-6" />
-                </a>
-              </div>
-            </div>
-          </section>
-
-          {/* Skills */}
-          <SkillsPage />
-
-          {/* Experience */}
-          <ExperienceSection />
-          {/* <Timeline items={timelineItems} /> */}
-
-          {/* Projects */}
-          <ProjectsSection />
-
-          {/* Education */}
-          <EducationSection />
-
-          <footer className="bg-gray-900 text-white py-2 text-center">
-            <div className="mt-8 flex justify-center space-x-6">
-              <a
-                href="https://github.com/anshitashukla"
-                className="text-gray-500 hover:text-gray-300"
-              >
-                <Github className="h-6 w-6" />
-              </a>
-              <a
-                href="https://linkedin.com/in/anshita-shukla"
-                className="text-gray-500 hover:text-gray-300"
-              >
-                <Linkedin className="h-6 w-6" />
-              </a>
-              <a
-                href="mailto:anshitashukla0102@gmail.com"
-                className="text-gray-500 hover:text-gray-300"
-              >
-                <Mail className="h-6 w-6" />
-              </a>
-            </div>
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <p>© 2025 Anshita Shukla. All rights reserved.</p>
-            </div>
-          </footer>
-        </div>
+                  <ColorIcon icon={Icon} brand={brand} className="h-4 w-4" />
+                </motion.a>
+              ))}
+            </motion.div>
+            <p className="footer-copy">
+              © 2025 {profile.name} · Built with React, TypeScript & Framer Motion
+            </p>
+          </motion.footer>
+        </motion.div>
       )}
     </>
   );

@@ -1,73 +1,82 @@
-import React from "react";
-import {
-  VerticalTimeline,
-  VerticalTimelineElement,
-} from "react-vertical-timeline-component";
+import { motion } from "framer-motion";
+import { VerticalTimeline, VerticalTimelineElement } from "react-vertical-timeline-component";
 import "react-vertical-timeline-component/style.min.css";
 import { experiences } from "../constants/Experience";
+import Section from "./ui/Section";
+import SectionTitle from "./ui/SectionTitle";
+import { viewportOnce } from "../utils/motion";
 
-const ExperienceSection: React.FC = () => {
-  return (
-    <section id="experience" className="bg-primary py-16">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl font-bold text-white mb-8 text-center">
-          Experience
-        </h2>
-        <VerticalTimeline>
-          {experiences.map((exp, index) => (
-            <VerticalTimelineElement
-              key={index}
-              className="vertical-timeline-element--work"
-              contentArrowStyle={{
-                borderRight: "7px solid  rgb(255, 255, 255)",
-              }}
-              date={exp.duration}
-              dateClassName="text-white"
-              iconStyle={{ background: "rgb(33, 150, 243)", color: "#fff" }}
-              icon={
-                <img
-                  src={exp.image}
-                  alt="Experience Icon"
-                  style={{ width: "100%", height: "100%", borderRadius: "50%" }}
-                />
-              }
-            >
-              <span>
-                <img
-                  src={exp.image}
-                  alt="Experience Icon"
-                  style={{ width: "10%", height: "10%", borderRadius: "50%" }}
-                />
-              </span>
-              <h3 className="vertical-timeline-element-title text-lg font-bold">
-                {exp.title}
-              </h3>
-              <h4 className="vertical-timeline-element-subtitle text-gray-600">
-                {exp.company}
-              </h4>
-              <h4 className="text-[0.7rem] text-gray-400">{exp.duration}</h4>
-              <ul className="mt-4 text-gray-600 list-disc list-inside space-y-2">
-                {exp.responsibilities.map((item, idx) => (
-                  <li key={idx} dangerouslySetInnerHTML={{ __html: item }} />
-                ))}
-              </ul>
-              <div className="mt-4 text-gray-600">
-                <strong className="">Skills: </strong>{" "}
-                {exp.skills.map((skill, index) => (
-                  <React.Fragment key={index}>
-                    <span className="text-color-primary font-bold">
-                      {skill},
-                    </span>
-                    {index < exp.skills.length - 1 && " "}
-                  </React.Fragment>
+const ExperienceSection = () => (
+  <Section id="experience" muted>
+    <SectionTitle
+      eyebrow="Experience"
+      title="Where I've worked"
+      description="Roles across product engineering, scale, and delivery."
+    />
+
+    <VerticalTimeline lineColor="#e4e4e7">
+      {experiences.map((exp, index) => (
+        <VerticalTimelineElement
+          key={`${exp.company}-${exp.duration}`}
+          date={exp.duration}
+          iconStyle={{
+            background: "#fafafa",
+            border: "1px solid #e4e4e7",
+            boxShadow: "none",
+          }}
+          icon={
+            <motion.img
+              src={exp.image}
+              alt={exp.company}
+              style={{ width: "100%", height: "100%", borderRadius: "50%", objectFit: "cover" }}
+              whileHover={{ scale: 1.08 }}
+              transition={{ type: "spring", stiffness: 300, damping: 18 }}
+            />
+          }
+        >
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={viewportOnce}
+            transition={{ duration: 0.5, delay: index * 0.08 }}
+            whileHover={{ x: index % 2 === 0 ? 4 : -4 }}
+          >
+            <h3 className="timeline-role">
+              {exp.title}
+              {exp.current ? <span className="timeline-current-badge">Current</span> : null}
+            </h3>
+            <p className="timeline-org">{exp.company}</p>
+            <p className="timeline-location">{exp.location}</p>
+
+            <ul className="timeline-list">
+              {exp.responsibilities.map((point, i) => (
+                <motion.li
+                  key={i}
+                  initial={{ opacity: 0, x: -8 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={viewportOnce}
+                  transition={{ delay: 0.1 + i * 0.05 }}
+                >
+                  {point}
+                </motion.li>
+              ))}
+            </ul>
+
+            <div className="timeline-skills">
+              <p className="timeline-skills-label">Technologies & skills</p>
+              <div className="timeline-skills-list">
+                {exp.skills.map((skill) => (
+                  <span key={skill} className="timeline-skill-badge">
+                    {skill}
+                  </span>
                 ))}
               </div>
-            </VerticalTimelineElement>
-          ))}
-        </VerticalTimeline>
-      </div>
-    </section>
-  );
-};
+            </div>
+          </motion.div>
+        </VerticalTimelineElement>
+      ))}
+    </VerticalTimeline>
+  </Section>
+);
 
 export default ExperienceSection;

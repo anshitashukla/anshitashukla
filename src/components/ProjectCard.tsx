@@ -1,188 +1,121 @@
-import React from "react";
-import styled from "styled-components";
+import { useRef, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ExternalLink, Github, Sparkles } from "lucide-react";
+import type { PortfolioProject } from "../constants/portfolioProjects";
+import Card from "./ui/Card";
+import MotionLink from "./ui/MotionLink";
+import ColorIcon from "./ui/ColorIcon";
+import { hoverLift } from "../utils/motion";
 
-const Card = styled.div`
-  width: 330px;
-  height: 535px;
-  background-color: #ffffff;
-  cursor: pointer;
-  border-radius: 10px;
-  box-shadow: 0 0 12px 4px rgba(0, 0, 0, 0.4);
-  overflow: hidden;
-  padding: 26px 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  transition: all 0.5s ease-in-out;
-  &:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 0 50px 4px rgba(0, 0, 0, 0.6);
-    filter: brightness(1.1);
-  }
-`;
-
-const Image = styled.img`
-  width: 100%;
-  height: 180px;
-  background-color: #ffffff;
-  border-radius: 10px;
-  box-shadow: 0 0 16px 2px rgba(0, 0, 0, 0.3);
-`;
-
-const Tags = styled.div`
-  width: 100%;
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 4px;
-`;
-
-const Tag = styled.span`
-  font-size: 12px;
-  font-weight: 400;
-  color: #007bff;
-  background-color: #e6f3ff;
-  padding: 2px 8px;
-  border-radius: 10px;
-`;
-
-const Details = styled.div`
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 0px;
-  padding: 0px 2px;
-`;
-
-const Title = styled.div`
-  font-size: 20px;
-  font-weight: 600;
-  color: #333333;
-  overflow: hidden;
-  display: -webkit-box;
-  max-width: 100%;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  text-overflow: ellipsis;
-`;
-
-const Date = styled.div`
-  font-size: 12px;
-  margin-left: 2px;
-  font-weight: 400;
-  color: #666666;
-  @media only screen and (max-width: 768px) {
-    font-size: 10px;
-  }
-`;
-
-const Description = styled.div`
-  font-weight: 400;
-  color: #4d4d4d;
-  overflow: hidden;
-  margin-top: 8px;
-  display: -webkit-box;
-  max-width: 100%;
-  -webkit-line-clamp: 5;
-  -webkit-box-orient: vertical;
-  text-overflow: ellipsis;
-`;
-
-const Members = styled.div`
-  display: flex;
-  align-items: center;
-  padding-left: 10px;
-`;
-
-const Avatar = styled.img`
-  width: 38px;
-  height: 38px;
-  border-radius: 50%;
-  margin-left: -10px;
-  background-color: #ffffff;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  border: 3px solid #ffffff;
-`;
-
-const Button = styled.a`
-  color: #007bff;
-  text-decoration: none;
-  font-weight: 600;
-  text-align: center;
-`;
-
-const ButtonContainer = styled.div`
-  display: flex;
-  justify-content: space-between;
-  padding: 0px 30px;
-`;
-
-const CenteredButtonContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  width: 100%;
-`;
-
-interface Project {
-  image: string;
-  tags?: string[];
-  title: string;
-  date: string;
-  description: string;
-  member?: { img: string }[];
-  github: string;
-  webapp?: string;
+interface ProjectCardProps {
+  project: PortfolioProject;
+  index: number;
 }
 
-const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
-  const calculateDescriptionHeight = () => {
-    const baseHeight = 75;
-    const additionalHeightPerDescription = project.member ? 0 : 40;
-    return baseHeight + additionalHeightPerDescription;
+const ProjectCard = ({ project, index }: ProjectCardProps) => {
+  const imageRef = useRef<HTMLDivElement>(null);
+  const screenshots = project.images ?? [project.image];
+  const [shotIndex, setShotIndex] = useState(0);
+  const activeImage = screenshots[shotIndex] ?? project.image;
+
+  const onMove = (e: React.MouseEvent) => {
+    const el = imageRef.current;
+    if (!el) return;
+    const rect = el.getBoundingClientRect();
+    const x = ((e.clientX - rect.left) / rect.width - 0.5) * 10;
+    const y = ((e.clientY - rect.top) / rect.height - 0.5) * 10;
+    el.style.transform = `perspective(800px) rotateY(${x}deg) rotateX(${-y}deg)`;
+  };
+
+  const onLeave = () => {
+    if (imageRef.current) imageRef.current.style.transform = "";
   };
 
   return (
-    <Card>
-      <Image src={project.image} />
-      <Tags>
-        {project.tags?.map((tag, index) => (
-          <Tag key={`tag-${index}`}>{tag}</Tag>
-        ))}
-      </Tags>
-      <Details>
-        <Title>{project.title}</Title>
-        <Date>{project.date}</Date>
-        <Description
-          style={{
-            height: calculateDescriptionHeight() + "px",
-            WebkitLineClamp: project.member ? 3 : 5,
-          }}
-        >
-          {project.description}
-        </Description>
-      </Details>
-      <Members>
-        {project.member?.map((member, index) => (
-          <Avatar key={`member-${index}`} src={member.img} />
-        ))}
-      </Members>
-      {project.webapp ? (
-        <ButtonContainer>
-          <Button href={project.github} target="_blank">
-            View Code
-          </Button>
-          <Button href={project.webapp} target="_blank">
-            Visit Site
-          </Button>
-        </ButtonContainer>
-      ) : (
-        <CenteredButtonContainer>
-          <Button href={project.github} target="_blank">
-            View Code
-          </Button>
-        </CenteredButtonContainer>
-      )}
+    <Card as="article" className="project-card" delay={index * 0.04}>
+      <div
+        ref={imageRef}
+        className="project-image-wrap"
+        onMouseMove={onMove}
+        onMouseLeave={onLeave}
+        style={{ transition: "transform 0.15s ease-out", transformStyle: "preserve-3d" }}
+      >
+        <AnimatePresence mode="wait">
+          <motion.img
+            key={activeImage}
+            src={activeImage}
+            alt={`${project.title} screenshot ${shotIndex + 1}`}
+            loading="lazy"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0 }}
+            whileHover={{ scale: 1.06 }}
+            transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+          />
+        </AnimatePresence>
+        {project.highlight && (
+          <span className="project-badge">
+            <ColorIcon icon={Sparkles} brand="sparkles" className="h-3 w-3" />
+            {project.highlight}
+          </span>
+        )}
+        {screenshots.length > 1 && (
+          <div className="project-gallery-dots" role="tablist" aria-label={`${project.title} screenshots`}>
+            {screenshots.map((src, i) => (
+              <button
+                key={src}
+                type="button"
+                role="tab"
+                aria-selected={i === shotIndex}
+                aria-label={`Screenshot ${i + 1}`}
+                className={`project-gallery-dot${i === shotIndex ? " is-active" : ""}`}
+                onClick={() => setShotIndex(i)}
+              />
+            ))}
+          </div>
+        )}
+      </div>
+      <div className="project-body">
+        <div className="chip-row">
+          {project.tags.slice(0, 4).map((tag) => (
+            <motion.span key={tag} className="tag tag-tech" whileHover={hoverLift} whileTap={{ scale: 0.96 }}>
+              {tag}
+            </motion.span>
+          ))}
+        </div>
+        <h3 className="project-title">{project.title}</h3>
+        <p className="project-date">{project.date}</p>
+        <p className="project-desc">{project.description}</p>
+        <ul className="project-impact">
+          {project.impact.map((line) => (
+            <li key={line}>{line}</li>
+          ))}
+        </ul>
+        <div className="project-actions">
+          {project.github ? (
+            <MotionLink
+              href={project.github}
+              variant="outline"
+              className="flex-1 !py-2 text-xs"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <ColorIcon icon={Github} brand="github" className="h-3.5 w-3.5" /> Code
+            </MotionLink>
+          ) : null}
+          {project.webapp ? (
+            <MotionLink
+              href={project.webapp}
+              variant="solid"
+              className={`${project.github ? "flex-1" : "w-full"} !py-2 text-xs`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <ColorIcon icon={ExternalLink} brand="external" className="h-3.5 w-3.5" /> Live site
+            </MotionLink>
+          ) : null}
+        </div>
+      </div>
     </Card>
   );
 };
