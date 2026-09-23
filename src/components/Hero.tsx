@@ -13,7 +13,7 @@ import {
 
 const stats = [
   { value: "4+", label: "Years experience" },
-  { value: "60%", label: "Revenue growth" },
+  { value: "1M+", label: "Requests scaled" },
   { value: "MS CS", label: "George Washington" },
 ];
 

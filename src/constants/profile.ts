@@ -10,9 +10,8 @@ import {
 import type { IconBrand } from "../utils/iconColors";
 import scalex from "../assets/images/scalex.png";
 import mphasis from "../assets/images/mphasis.png";
-import evaeco from "../assets/images/evaeco.jpeg";
 import gwu from "../assets/images/gw.png";
-import simplysponsor from "../assets/images/simplysponsor-logo.png";
+import cascovia from "../assets/images/cascovia.png";
 
 export const profile = {
   name: "Anshita Shukla",
@@ -28,11 +27,11 @@ export const profile = {
     "https://drive.google.com/uc?export=download&id=1Z_Xxnsdkhg7KzbdQFuqWvQSPEyyQcBap",
   educationHighlight: "MS Computer Science · George Washington University",
   elevator:
-    "Full-stack engineer with experience leading teams, shipping microservices, and delivering measurable gains in revenue, performance, and reliability — from MCP/LLM integrations to React micro-frontends at Scalex.",
+    "AI software engineer building high-scale insurance platforms — from generative AI workflows and RAG to microservices, carrier integrations, and production systems that move from hundreds of thousands to millions of requests.",
   currentWork: {
     label: "Currently building",
-    title: "Simply Sponsor",
-    url: "https://simplysponsor.com/",
+    title: "Cascovia",
+    url: "https://cascovia.com/",
   },
 };
 
@@ -46,96 +45,94 @@ export type ImpactMetric = {
 
 export const impactMetrics: ImpactMetric[] = [
   {
-    value: "60%",
-    label: "Revenue growth via payments",
-    context: "Stripe · PayPal",
+    value: "1M+",
+    label: "Requests processed",
+    context: "Cascovia · 300K → 1M+",
     icon: TrendingUp,
     brand: "external",
   },
   {
-    value: "40%",
-    label: "Faster frontend load time",
-    context: "Micro-frontend",
-    icon: Zap,
-    brand: "code",
-  },
-  {
-    value: "6",
-    label: "Engineers led",
-    context: "Scalex",
-    icon: Users,
-    brand: "users",
-  },
-  {
-    value: "35%",
-    label: "User engagement lift",
-    context: "Firebase · Push",
-    icon: Gauge,
-    brand: "sparkles",
-  },
-  {
-    value: "90%",
-    label: "Test coverage achieved",
-    context: "JUnit · Mockito",
+    value: "95%",
+    label: "Doc extraction accuracy",
+    context: "Textract · Pinecone",
     icon: ShieldCheck,
     brand: "linkedin",
   },
   {
-    value: "20%",
-    label: "Bundle size reduction",
-    context: "Webpack",
+    value: "12+",
+    label: "Microservices shipped",
+    context: "Insurance platform",
     icon: Workflow,
     brand: "file",
+  },
+  {
+    value: "40%",
+    label: "Less quoting effort",
+    context: "Carrier automation",
+    icon: Zap,
+    brand: "code",
+  },
+  {
+    value: "35%",
+    label: "Higher checkout completion",
+    context: "Stripe · PayPal",
+    icon: Gauge,
+    brand: "sparkles",
+  },
+  {
+    value: "20%",
+    label: "Smaller frontend bundles",
+    context: "Webpack",
+    icon: Users,
+    brand: "users",
   },
 ];
 
 export const companies = [
-  { name: "Simply Sponsor", logo: simplysponsor, role: "Full Stack Developer · Present" },
+  { name: "Cascovia", logo: cascovia, role: "AI Software Engineer · Present" },
   { name: "George Washington University", logo: gwu, role: "MS Computer Science" },
   { name: "Scalex Technology", logo: scalex, role: "Software Engineer 3" },
-  { name: "Mphasis", logo: mphasis, role: "Associate Software Engineer" },
-  { name: "Eva Eco System", logo: evaeco, role: "Full Stack Developer" },
+  { name: "Mphasis", logo: mphasis, role: "Software Engineer" },
 ] as const;
 
 export const expertiseAreas = [
   {
     title: "Distributed systems & APIs",
     description:
-      "Node.js microservices, MCP servers for LLM agents, REST APIs, MongoDB, ElasticSearch, and Spring Boot services.",
-    tags: ["Microservices", "Node.js", "TypeScript", "MCP", "MongoDB"],
+      "Node.js microservices, Kafka event flows, REST/OpenAPI, MongoDB, Elasticsearch, and carrier adapter frameworks.",
+    tags: ["Microservices", "Node.js", "Kafka", "OpenAPI", "MongoDB"],
   },
   {
     title: "Cloud & production operations",
     description:
-      "AWS Cognito, SNS, SES, Elastic Beanstalk; CI/CD with GitHub Actions; OAuth2, MFA, and secure notification flows.",
+      "AWS Cognito, SNS, SES, ECR, CodeDeploy, CloudWatch, Secrets Manager; CI/CD with GitHub Actions; OAuth2 and MFA.",
     tags: ["AWS", "Cognito", "CI/CD", "GitHub Actions", "OAuth 2.0"],
   },
   {
     title: "Product engineering",
     description:
-      "React, Next.js, React Native, Redux, micro-frontends, Stripe/PayPal, and Webpack-driven performance wins.",
-    tags: ["React", "Next.js", "React Native", "Redux", "Stripe"],
+      "React, Redux, Ant Design, React Native, Stripe/PayPal, Webpack performance, and real-time Socket.IO / Redis systems.",
+    tags: ["React", "Redux", "React Native", "Socket.IO", "Stripe"],
   },
   {
     title: "Generative AI development",
     description:
-      "Shipped LLM-powered products end-to-end — from prompt design and agent tooling through production APIs and user-facing chat experiences.",
+      "Shipped LLM-powered insurance products end-to-end — from prompt design and agent tooling through production APIs and agent-facing workflows.",
     highlights: [
       "Prompt engineering, structured outputs, and guardrails for reliable, on-brand responses",
       "RAG and context design so models answer from the right data — not hallucinated guesses",
-      "Tool-calling & MCP servers exposing real APIs (policy lookup, quoting, payments) for agent workflows",
+      "Tool-calling & LangChain workflows for quoting, underwriting, and document reasoning",
       "Production chat UX: streaming, session memory, fallbacks, latency tuning, and cost-aware model routing",
       "Evaluation loops — test prompts, compare model versions, and iterate before shipping to users",
     ],
     tags: [
-      "OpenAI API",
-      "Gemini",
+      "Claude",
       "LangChain",
-      "MCP",
-      "Dialogflow",
-      "Google AI Studio",
+      "Guardrails",
       "RAG",
-      "PyTorch",
+      "Pinecone",
+      "Amazon Textract",
+      "LLM Function Calling",
     ],
   },
 ] as const;
@@ -149,9 +146,9 @@ export const engineeringPrinciples = [
 ] as const;
 
 export const recruiterQuickFacts = [
-  "Building Simply Sponsor (simplysponsor.com)",
+  "Building Cascovia (cascovia.com)",
   "4+ years industry experience",
-  "Led team of 6 engineers",
+  "AI Software Engineer · insurance platforms",
   "MS CS @ George Washington University",
   "Full-stack · AI/ML Engineer",
   "United States · Open to opportunities",

@@ -19,19 +19,19 @@ const highlights: {
     icon: Rocket,
     brand: "rocket",
     title: "Scale & business impact",
-    desc: "60% revenue growth and 35% more successful transactions via Stripe & PayPal at Scalex.",
+    desc: "Scaled Cascovia quoting from 300K to 1M+ requests; 40% less quoting effort and 35% higher checkout completion.",
   },
   {
     icon: Code2,
     brand: "code",
     title: "Systems & product craft",
-    desc: "MCP servers for LLM agents, micro-frontends (40% faster loads), and 20% smaller Webpack bundles.",
+    desc: "12+ insurance microservices, Claude/LangChain AI workflows, Kafka event flows, and 95% document extraction accuracy.",
   },
   {
     icon: Users,
     brand: "users",
     title: "Technical leadership",
-    desc: "Led 6 engineers across microservices, CI/CD, security hardening, and production delivery.",
+    desc: "Led platform architecture for carrier integrations, API gateway MVP, and production AI underwriting tooling.",
   },
 ];
 
