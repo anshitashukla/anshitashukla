@@ -20,11 +20,11 @@ export const profile = {
   location: "United States",
   website: "https://anshitashukla.netlify.app",
   status: "Open to Software Engineer roles (Full-time)",
-  email: "anshitashukla0102@gmail.com",
+  email: "shuklaanshita113@gmail.com",
   linkedin: "https://linkedin.com/in/anshita-shukla",
   github: "https://github.com/anshitashukla",
   resumeUrl:
-    "https://drive.google.com/uc?export=download&id=1Z_Xxnsdkhg7KzbdQFuqWvQSPEyyQcBap",
+    "https://drive.google.com/file/d/12ad2kpErLXswkKuO139U0TeOH3ZO6qFn/view?usp=drive_link",
   educationHighlight: "MS Computer Science · George Washington University",
   elevator:
     "AI software engineer building high-scale insurance platforms — from generative AI workflows and RAG to microservices, carrier integrations, and production systems that move from hundreds of thousands to millions of requests.",

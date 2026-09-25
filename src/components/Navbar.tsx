@@ -90,7 +90,7 @@ const Navbar = ({ scrolled }: { scrolled: boolean }) => {
         </motion.nav>
 
         <MotionLink
-          href="mailto:anshitashukla0102@gmail.com"
+          href="mailto:shuklaanshita113@gmail.com"
           variant="solid"
           className="header-cta !py-2 !px-4 text-sm"
         >
@@ -156,7 +156,7 @@ const Navbar = ({ scrolled }: { scrolled: boolean }) => {
               ))}
               <motion.div variants={fadeUpSoft}>
                 <MotionLink
-                  href="mailto:anshitashukla0102@gmail.com"
+                  href="mailto:shuklaanshita113@gmail.com"
                   variant="solid"
                   className="w-full justify-center"
                   onClick={() => setIsOpen(false)}
